@@ -11,7 +11,7 @@ object App {
         }).load()?.let(CSVParser()::parse)
                 ?: throw IllegalArgumentException("ファイルの中身がありません")
 
-        val formatter = TextFormatter(content)
+        val formatter = MarkdownFormatter(content)
         val writer = StdWriter()
         writer.write(formatter)
     }
