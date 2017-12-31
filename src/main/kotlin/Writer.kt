@@ -1,4 +1,5 @@
 interface Writer {
+    // 出力データは確実に存在する必要があるので、Non-Nullとする
     fun write(formatter: Formatter)
 }
 

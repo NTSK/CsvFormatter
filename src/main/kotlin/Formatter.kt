@@ -1,4 +1,5 @@
 interface Formatter {
+    // 変換されたデータは必ず存在するのでNon-Nullとする
     val data: String
     fun format(): String
 }
