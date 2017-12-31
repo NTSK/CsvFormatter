@@ -5,7 +5,7 @@ interface Loader {
     fun load(): String?
 }
 
-class FileLoader(private val file: File): Loader {
+class FileLoader(private val file: File) : Loader {
     init {
         require(file.exists())
     }

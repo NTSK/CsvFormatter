@@ -3,7 +3,7 @@ interface Writer {
     fun write(formatter: Formatter)
 }
 
-class StdWriter: Writer {
+class StdWriter : Writer {
     override fun write(formatter: Formatter) {
         println(formatter.format())
     }
