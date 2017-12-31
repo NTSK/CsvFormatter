@@ -8,7 +8,8 @@ object App {
             if (!it.exists()) {
                 throw IllegalArgumentException("$filePath にファイルがありません")
             }
-        }).load() ?: throw IllegalArgumentException("ファイルの中身がありません")
+        }).load()?.let(CSVParser()::parse)
+                ?: throw IllegalArgumentException("ファイルの中身がありません")
 
         val formatter = TextFormatter(content)
         val writer = StdWriter()
