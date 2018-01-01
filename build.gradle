@@ -32,6 +32,8 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
 }
 
+mainClassName = 'App'
+
 compileKotlin {
     kotlinOptions.jvmTarget = "1.8"
 }

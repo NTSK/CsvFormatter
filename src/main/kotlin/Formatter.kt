@@ -5,8 +5,15 @@ interface Formatter {
     fun format(): String
 }
 
+enum class Format {
+    JSON,
+    MARKDOWN,
+    TEXT
+}
+
 class TextFormatter(override val items: List<Row>) : Formatter {
     override fun format(): String = items.toString()
+
 }
 
 class MarkdownFormatter(override val items: List<Row>) : Formatter {
