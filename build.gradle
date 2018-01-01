@@ -18,7 +18,7 @@ apply plugin: 'application'
 
 sourceCompatibility = 1.5
 
-sourceSet {
+sourceSets {
     main.kotlin.srcDirs += 'src/main/kotlin'
 }
 
