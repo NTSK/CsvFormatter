@@ -1,3 +1,6 @@
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
+
 interface Formatter {
     // 変換されたデータは必ず存在するのでNon-Nullとする
     val items: List<Row>
@@ -33,4 +36,8 @@ class MarkdownFormatter(override val items: List<Row>) : Formatter {
             }
         }
     }
+}
+
+class JSONFormatter(override val items: List<Row>, private val gson : Gson = GsonBuilder().create()) : Formatter {
+    override fun format(): String = gson.toJson(items)
 }
