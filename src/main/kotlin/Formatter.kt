@@ -39,18 +39,18 @@ class MarkdownFormatter(override val items: List<Row>) : Formatter {
     }
 }
 
-class JSONFormatter(override val items: List<Row>, private val gson : Gson = GsonBuilder().create()) : Formatter {
+class JSONFormatter(override val items: List<Row>, private val gson: Gson = GsonBuilder().create()) : Formatter {
     override fun format(): String = gson.toJson(items)
 }
 
 class MarkdownTableFormatter(override val items: List<Row>) : Formatter {
     override fun format(): String = items.joinToString(
             separator = System.getProperty("line.separator")) {
-        when(it) {
+        when (it) {
             is Row.Header -> {
                 val (header, line) =
                         it.columns.fold(StringBuilder("|") to StringBuilder("|"),
-                                { (header, line), column -> (header.append("$column")) to (line.append("---|"))})
+                                { (header, line), column -> (header.append("$column")) to (line.append("---|")) })
                 header.append(System.getProperty("line.separator")).append(line)
             }
             is Row.Item -> {
