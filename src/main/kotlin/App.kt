@@ -11,7 +11,13 @@ object App {
         }).load()?.let(CSVParser()::parse)
                 ?: throw IllegalArgumentException("ファイルの中身がありません")
 
-        val formatter = MarkdownFormatter(content)
+        val format = enumValueOf<Format>("JSON")
+
+        val formatter = when(format) {
+            Format.JSON -> JSONFormatter(content)
+            Format.MARKDOWN -> MarkdownFormatter(content)
+            Format.TEXT -> TextFormatter(content)
+        }
         val writer = StdWriter()
         writer.write(formatter)
     }
