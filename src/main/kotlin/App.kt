@@ -26,6 +26,7 @@ object App {
             Format.TEXT -> TextFormatter(content)
             Format.TABLE -> MarkdownTableFormatter(content)
         }
+        
         val writer = if (destination == null) {
             StdWriter()
         } else {
